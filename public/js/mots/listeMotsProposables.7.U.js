@@ -1,0 +1,20 @@
+(function (factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var v = factory(require, exports);
+        if (v !== undefined) module.exports = v;
+    }
+    else if (typeof define === "function" && define.amd) {
+        define(["require", "exports"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var ListeMotsProposables = /** @class */ (function () {
+        function ListeMotsProposables() {
+        }
+        ListeMotsProposables.Dictionnaire = ["UBERALE", "UBIQUES", "UKULELE", "ULCERAI", "ULCERAS", "ULCERAT", "ULCEREE", "ULCERER", "ULCERES", "ULCEREZ", "ULLUQUE", "ULMACEE", "ULMAIRE", "ULMISTE", "ULNAIRE", "ULTIMES", "ULULAIS", "ULULAIT", "ULULANT", "ULULENT", "ULULERA", "ULULIEZ", "ULULONS", "UMBANDA", "UMBUNDU", "UMLAUTS", "UMMITES", "UNAIRES", "UNANIME", "UNCINEE", "UNCINES", "UNGUEAL", "UNIATES", "UNIAXES", "UNICITE", "UNIDOSE", "UNIEMES", "UNIFERE", "UNIFIAI", "UNIFIAS", "UNIFIAT", "UNIFIEE", "UNIFIER", "UNIFIES", "UNIFIEZ", "UNILOBE", "UNIMENT", "UNIPARE", "UNIQUES", "UNIRAIS", "UNIRAIT", "UNIRAME", "UNIRENT", "UNIRIEZ", "UNIRONS", "UNIRONT", "UNISEXE", "UNISSES", "UNISSEZ", "UNISSON", "UNITIFS", "UNITIVE", "UNIVERS", "UPERISA", "UPERISE", "UPGRADA", "UPGRADE", "UPSILON", "URACILE", "URAETES", "URANATE", "URANIES", "URANITE", "URANIUM", "URANYLE", "URBAINE", "URBAINS", "URCEOLE", "UREIDES", "UREIQUE", "UREMIES", "URETERE", "URETRAL", "URETRES", "URGEAIT", "URGEANT", "URGENCE", "URGENTE", "URGENTS", "URIDINE", "URINAIS", "URINAIT", "URINANT", "URINAUX", "URINEES", "URINENT", "URINERA", "URINEUX", "URINIEZ", "URINOIR", "URINONS", "URIQUES", "URODELE", "UROPODE", "URSIDES", "URTICEE", "USAGEES", "USAGERE", "USAGERS", "USAIENT", "USANCES", "USANTES", "USASSES", "USERAIS", "USERAIT", "USERENT", "USERIEZ", "USERONS", "USERONT", "USINAGE", "USINAIS", "USINAIT", "USINANT", "USINEES", "USINENT", "USINERA", "USINIER", "USINIEZ", "USINONS", "USITEES", "USUELLE", "USURIER", "USURPAI", "USURPAS", "USURPAT", "USURPEE", "USURPER", "USURPES", "USURPEZ", "UTERINE", "UTERINS", "UTILISA", "UTILISE", "UTILITE", "UTOPIES", "UVEITES"
+        ];
+        return ListeMotsProposables;
+    }());
+    exports.default = ListeMotsProposables;
+});

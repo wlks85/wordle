@@ -1,0 +1,7 @@
+public static readonly Liste: Array<string> = [
+"IRIDIEES",
+"BRILLAIT",
+"DEVOYIEZ",
+"DENATTERA",
+
+]
