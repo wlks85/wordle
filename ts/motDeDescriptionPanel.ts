@@ -2,7 +2,7 @@ import CopieHelper from "./copieHelper";
 import Configuration from "./entites/configuration";
 import LettreResultat from "./entites/lettreResultat";
 import Gestionnaire from "./gestionnaire";
-import { HttpRequestHelper, HttpMethods } from "./httpHelper";
+import { HttpRequestHelper } from "./httpHelper";
 import InstanceConfiguration from "./instanceConfiguration";
 import PanelManager from "./panelManager";
 import Sauvegardeur from "./sauvegardeur";
