@@ -38,12 +38,13 @@ export default class Sauvegardeur {
     return stats;
   }
 
-  public static sauvegarderPartieEnCours(idPartie: string, datePartie: Date, propositions: Array<string>, dateFinPartie?: Date): void {
+  public static sauvegarderPartieEnCours(idPartie: string, datePartie: Date, propositions: Array<string>, dateFinPartie?: Date, shownDescription?: string): void {
     let partieEnCours: SauvegardePartie = {
       propositions: propositions,
       datePartie,
       dateFinPartie,
       idPartie,
+      shownDescription,
     };
     localStorage.setItem(this._clePartieEnCours, JSON.stringify(partieEnCours));
   }
@@ -105,6 +106,7 @@ export default class Sauvegardeur {
       dateFinPartie: dateFinPartie,
       propositions: partieEnCours.propositions,
       idPartie: partieEnCours.idPartie,
+      shownDescription: partieEnCours.shownDescription,
     };
   }
 
@@ -156,6 +158,7 @@ export default class Sauvegardeur {
       dateFinPartie: dateFinPartie,
       propositions: partieVeille.propositions,
       idPartie: partieVeille.idPartie,
+      shownDescription: partieVeille.shownDescription,
     };
   }
 
@@ -211,7 +214,7 @@ export default class Sauvegardeur {
       LettresBienPlaceesString,
       LettresMalPlaceesString,
       LettresNonTrouveString,
-      dernierePartie,
+      dernierePartie
     ] = contenu.split(",");
 
     const UnCoup = parseInt(UnCoupString);
@@ -242,7 +245,7 @@ export default class Sauvegardeur {
         bienPlace: LettresBienPlacees,
         malPlace: LettresMalPlacees,
         nonTrouve: LettresNonTrouve,
-      },
+      }
     };
   }
 }

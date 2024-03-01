@@ -41,11 +41,13 @@ export default class Gestionnaire {
   private _dateFinPartie: Date | undefined;
   private _stats: SauvegardeStats = SauvegardeStats.Default;
   private _config: Configuration = Configuration.Default;
+  private _shownDescription: string = "";
 
   public constructor() {
     this._config = Sauvegardeur.chargerConfig() ?? this._config;
 
     let partieEnCours = this.chargerPartieEnCours();
+    this._shownDescription = partieEnCours.shownDescription ? partieEnCours.shownDescription: "no";
 
     this._idPartieEnCours = this.getIdPartie(partieEnCours);
 
@@ -137,6 +139,7 @@ export default class Gestionnaire {
       }
     } else {
       this._stats.repartition["-"]++;
+      this._shownDescription = "no";
     }
     this._stats.lettresRepartitions.bienPlace += this._resultats.reduce((accumulateur: number, mot: Array<LettreResultat>) => {
       accumulateur += mot.filter((item) => item.statut == LettreStatut.BienPlace).length;
@@ -151,12 +154,11 @@ export default class Gestionnaire {
       return accumulateur;
     }, 0);
     this._stats.dernierePartie = this._datePartieEnCours;
-
     Sauvegardeur.sauvegarderStats(this._stats);
   }
 
   private sauvegarderPartieEnCours(): void {
-    Sauvegardeur.sauvegarderPartieEnCours(this._idPartieEnCours, this._datePartieEnCours, this._propositions, this._dateFinPartie);
+    Sauvegardeur.sauvegarderPartieEnCours(this._idPartieEnCours, this._datePartieEnCours, this._propositions, this._dateFinPartie, this._shownDescription);
   }
 
   private async discoverDescription(mot: string): Promise<void> {
@@ -208,6 +210,8 @@ export default class Gestionnaire {
       let duree = this._dateFinPartie.getTime() - this._datePartieEnCours.getTime();
       this._finDePartiePanel.genererResume(isBonneReponse, this._motATrouver, this._resultats, duree);
       if (!chargementPartie) this.enregistrerPartieDansStats();
+    } else {
+      this._shownDescription = "no";
     }
 
     if (this._grille) {
@@ -317,6 +321,7 @@ export default class Gestionnaire {
 
     this._propositions.splice(0);
     this._resultats.splice(0);
+
     this._finDePartiePanel = new FinDePartiePanel(this._datePartieEnCours, this._panelManager, this);
 
     this.choisirMot(this._idPartieEnCours, this._datePartieEnCours)
@@ -334,5 +339,9 @@ export default class Gestionnaire {
 
   public get motDeDescriptionPanel() {
     return this._motDeDescriptionPanel;
+  }
+
+  public getStat(): SauvegardeStats {
+    return this._stats;
   }
 }

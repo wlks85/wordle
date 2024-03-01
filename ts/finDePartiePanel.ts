@@ -2,6 +2,8 @@ import CopieHelper from "./copieHelper";
 import Configuration from "./entites/configuration";
 import LettreResultat from "./entites/lettreResultat";
 import { LettreStatut } from "./entites/lettreStatut";
+import PartieEnCours from "./entites/partieEnCours";
+import SauvegardePartie from "./entites/sauvegardePartie";
 import SauvegardeStats from "./entites/sauvegardeStats";
 import Gestionnaire from "./gestionnaire";
 import InstanceConfiguration from "./instanceConfiguration";
@@ -173,7 +175,19 @@ export default class FinDePartiePanel {
       );
     }
     this._panelManager.setCallbackFermeture(async () => {
-      if(this._estVictoire) this._gestionnaire.motDeDescriptionPanel.afficher();
+      if(this._estVictoire) {
+        const partieEncours: PartieEnCours| undefined =Sauvegardeur.chargerSauvegardePartieEnCours();
+        if(partieEncours) {
+          const idPartie: string = partieEncours.idPartie ? partieEncours.idPartie: "";
+          const datePartie:any = partieEncours.datePartie;
+          const propositions: any = partieEncours.propositions;
+          if((partieEncours.shownDescription == "no") || !(partieEncours.shownDescription)) {
+              this._gestionnaire.motDeDescriptionPanel.afficher();
+              Sauvegardeur.sauvegarderPartieEnCours(idPartie, datePartie, propositions, partieEncours.dateFinPartie, "yes");
+          }
+        }
+      }
+      
     });
     this._panelManager.afficherPanel();
   }

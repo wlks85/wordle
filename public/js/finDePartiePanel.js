@@ -192,9 +192,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 }).bind(this));
             }
             this._panelManager.setCallbackFermeture(function () { return __awaiter(_this, void 0, void 0, function () {
+                var partieEncours, idPartie, datePartie, propositions;
                 return __generator(this, function (_a) {
-                    if (this._estVictoire)
-                        this._gestionnaire.motDeDescriptionPanel.afficher();
+                    if (this._estVictoire) {
+                        partieEncours = sauvegardeur_1.default.chargerSauvegardePartieEnCours();
+                        if (partieEncours) {
+                            idPartie = partieEncours.idPartie ? partieEncours.idPartie : "";
+                            datePartie = partieEncours.datePartie;
+                            propositions = partieEncours.propositions;
+                            if ((partieEncours.shownDescription == "no") || !(partieEncours.shownDescription)) {
+                                this._gestionnaire.motDeDescriptionPanel.afficher();
+                                sauvegardeur_1.default.sauvegarderPartieEnCours(idPartie, datePartie, propositions, partieEncours.dateFinPartie, "yes");
+                            }
+                        }
+                    }
                     return [2 /*return*/];
                 });
             }); });

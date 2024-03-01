@@ -3,4 +3,5 @@ export default class SauvegardePartie {
   datePartie: Date = new Date();
   dateFinPartie?: Date;
   idPartie?: string;
+  shownDescription?: string;
 }

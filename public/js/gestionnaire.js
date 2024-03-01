@@ -113,8 +113,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             this._maxNbPropositions = 6;
             this._stats = sauvegardeStats_1.default.Default;
             this._config = configuration_1.default.Default;
+            this._shownDescription = "";
             this._config = (_a = sauvegardeur_1.default.chargerConfig()) !== null && _a !== void 0 ? _a : this._config;
             var partieEnCours = this.chargerPartieEnCours();
+            this._shownDescription = partieEnCours.shownDescription ? partieEnCours.shownDescription : "no";
             this._idPartieEnCours = this.getIdPartie(partieEnCours);
             if (this._idPartieEnCours !== partieEnCours.idPartie && partieEnCours.idPartie !== undefined) {
                 partieEnCours = new partieEnCours_1.default();
@@ -221,6 +223,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             }
             else {
                 this._stats.repartition["-"]++;
+                this._shownDescription = "no";
             }
             this._stats.lettresRepartitions.bienPlace += this._resultats.reduce(function (accumulateur, mot) {
                 accumulateur += mot.filter(function (item) { return item.statut == lettreStatut_1.LettreStatut.BienPlace; }).length;
@@ -238,7 +241,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             sauvegardeur_1.default.sauvegarderStats(this._stats);
         };
         Gestionnaire.prototype.sauvegarderPartieEnCours = function () {
-            sauvegardeur_1.default.sauvegarderPartieEnCours(this._idPartieEnCours, this._datePartieEnCours, this._propositions, this._dateFinPartie);
+            sauvegardeur_1.default.sauvegarderPartieEnCours(this._idPartieEnCours, this._datePartieEnCours, this._propositions, this._dateFinPartie, this._shownDescription);
         };
         Gestionnaire.prototype.discoverDescription = function (mot) {
             return __awaiter(this, void 0, void 0, function () {
@@ -311,6 +314,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                                 this._finDePartiePanel.genererResume(isBonneReponse, this._motATrouver, this._resultats, duree);
                                 if (!chargementPartie)
                                     this.enregistrerPartieDansStats();
+                            }
+                            else {
+                                this._shownDescription = "no";
                             }
                             if (this._grille) {
                                 this._grille.validerMot(mot, resultats, isBonneReponse, chargementPartie, function () {
@@ -435,6 +441,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             enumerable: false,
             configurable: true
         });
+        Gestionnaire.prototype.getStat = function () {
+            return this._stats;
+        };
         return Gestionnaire;
     }());
     exports.default = Gestionnaire;

@@ -42,12 +42,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 stats.dernierePartie = new Date(stats.dernierePartie);
             return stats;
         };
-        Sauvegardeur.sauvegarderPartieEnCours = function (idPartie, datePartie, propositions, dateFinPartie) {
+        Sauvegardeur.sauvegarderPartieEnCours = function (idPartie, datePartie, propositions, dateFinPartie, shownDescription) {
             var partieEnCours = {
                 propositions: propositions,
                 datePartie: datePartie,
                 dateFinPartie: dateFinPartie,
                 idPartie: idPartie,
+                shownDescription: shownDescription,
             };
             localStorage.setItem(this._clePartieEnCours, JSON.stringify(partieEnCours));
         };
@@ -101,6 +102,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 dateFinPartie: dateFinPartie,
                 propositions: partieEnCours.propositions,
                 idPartie: partieEnCours.idPartie,
+                shownDescription: partieEnCours.shownDescription,
             };
         };
         Sauvegardeur.getInfoVeille = function () {
@@ -144,6 +146,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 dateFinPartie: dateFinPartie,
                 propositions: partieVeille.propositions,
                 idPartie: partieVeille.idPartie,
+                shownDescription: partieVeille.shownDescription,
             };
         };
         Sauvegardeur.getInfosPartieVeille = function (veille) {
@@ -211,7 +214,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                     bienPlace: LettresBienPlacees,
                     malPlace: LettresMalPlacees,
                     nonTrouve: LettresNonTrouve,
-                },
+                }
             };
         };
         Sauvegardeur._cleStats = "statistiques";

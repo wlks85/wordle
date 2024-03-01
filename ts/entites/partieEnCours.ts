@@ -3,4 +3,5 @@ export default class PartieEnCours {
   public datePartie: Date | undefined;
   public dateFinPartie: Date | undefined;
   public idPartie: string | undefined;
+  public shownDescription: string | undefined;
 }
