@@ -85,29 +85,29 @@ export default class ConfigurationPanel {
       )
     );
 
-    contenu.appendChild(
-      this.genererConfigItem(
-        "Thème",
-        [
-          { value: Theme.Sombre.toString(), label: "Sombre" },
-          { value: Theme.Clair.toString(), label: "Clair" },
-          { value: Theme.SombreAccessible.toString(), label: "Sombre (Accessible)" },
-          { value: Theme.ClairAccessible.toString(), label: "Clair (Accessible)" },
-        ],
-        (config.theme ?? Configuration.Default.theme).toString(),
-        (event: Event) => {
-          event.stopPropagation();
-          let theme: Theme = parseInt((event.target as HTMLSelectElement).value);
+    // contenu.appendChild(
+    //   this.genererConfigItem(
+    //     "Thème",
+    //     [
+    //       { value: Theme.Sombre.toString(), label: "Sombre" },
+    //       { value: Theme.Clair.toString(), label: "Clair" },
+    //       { value: Theme.SombreAccessible.toString(), label: "Sombre (Accessible)" },
+    //       { value: Theme.ClairAccessible.toString(), label: "Clair (Accessible)" },
+    //     ],
+    //     (config.theme ?? Configuration.Default.theme).toString(),
+    //     (event: Event) => {
+    //       event.stopPropagation();
+    //       let theme: Theme = parseInt((event.target as HTMLSelectElement).value);
 
-          this._themeManager.changerCouleur(theme);
+    //       this._themeManager.changerCouleur(theme);
 
-          Sauvegardeur.sauvegarderConfig({
-            ...(Sauvegardeur.chargerConfig() ?? Configuration.Default),
-            theme,
-          });
-        }
-      )
-    );
+    //       Sauvegardeur.sauvegarderConfig({
+    //         ...(Sauvegardeur.chargerConfig() ?? Configuration.Default),
+    //         theme,
+    //       });
+    //     }
+    //   )
+    // );
 
     contenu.appendChild(
       this.genererConfigItem(

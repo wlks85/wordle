@@ -18,7 +18,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./entites/configuration", "./sauvegardeur", "./entites/volumeSon", "./entites/clavierDisposition", "./entites/theme", "./copieHelper"], factory);
+        define(["require", "exports", "./entites/configuration", "./sauvegardeur", "./entites/volumeSon", "./entites/clavierDisposition", "./copieHelper"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -27,7 +27,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     var sauvegardeur_1 = __importDefault(require("./sauvegardeur"));
     var volumeSon_1 = require("./entites/volumeSon");
     var clavierDisposition_1 = require("./entites/clavierDisposition");
-    var theme_1 = require("./entites/theme");
     var copieHelper_1 = __importDefault(require("./copieHelper"));
     var ConfigurationPanel = /** @class */ (function () {
         function ConfigurationPanel(panelManager, audioPanel, themeManager) {
@@ -42,7 +41,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         }
         ConfigurationPanel.prototype.afficher = function () {
             var _this = this;
-            var _a, _b, _c, _d, _e, _f;
+            var _a, _b, _c, _d, _e;
             var titre = "Configuration";
             var contenu = document.createElement("div");
             contenu.id = "config-liste";
@@ -71,22 +70,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                     _this._input.dessinerClavier(disposition);
                 sauvegardeur_1.default.sauvegarderConfig(__assign(__assign({}, ((_a = sauvegardeur_1.default.chargerConfig()) !== null && _a !== void 0 ? _a : configuration_1.default.Default)), { disposition: disposition }));
             }));
-            contenu.appendChild(this.genererConfigItem("Thème", [
-                { value: theme_1.Theme.Sombre.toString(), label: "Sombre" },
-                { value: theme_1.Theme.Clair.toString(), label: "Clair" },
-                { value: theme_1.Theme.SombreAccessible.toString(), label: "Sombre (Accessible)" },
-                { value: theme_1.Theme.ClairAccessible.toString(), label: "Clair (Accessible)" },
-            ], ((_d = config.theme) !== null && _d !== void 0 ? _d : configuration_1.default.Default.theme).toString(), function (event) {
-                var _a;
-                event.stopPropagation();
-                var theme = parseInt(event.target.value);
-                _this._themeManager.changerCouleur(theme);
-                sauvegardeur_1.default.sauvegarderConfig(__assign(__assign({}, ((_a = sauvegardeur_1.default.chargerConfig()) !== null && _a !== void 0 ? _a : configuration_1.default.Default)), { theme: theme }));
-            }));
+            // contenu.appendChild(
+            //   this.genererConfigItem(
+            //     "Thème",
+            //     [
+            //       { value: Theme.Sombre.toString(), label: "Sombre" },
+            //       { value: Theme.Clair.toString(), label: "Clair" },
+            //       { value: Theme.SombreAccessible.toString(), label: "Sombre (Accessible)" },
+            //       { value: Theme.ClairAccessible.toString(), label: "Clair (Accessible)" },
+            //     ],
+            //     (config.theme ?? Configuration.Default.theme).toString(),
+            //     (event: Event) => {
+            //       event.stopPropagation();
+            //       let theme: Theme = parseInt((event.target as HTMLSelectElement).value);
+            //       this._themeManager.changerCouleur(theme);
+            //       Sauvegardeur.sauvegarderConfig({
+            //         ...(Sauvegardeur.chargerConfig() ?? Configuration.Default),
+            //         theme,
+            //       });
+            //     }
+            //   )
+            // );
             contenu.appendChild(this.genererConfigItem("Afficher le temps sur le résumé (à la prochaine partie)", [
                 { value: false.toString(), label: "Non" },
                 { value: true.toString(), label: "Oui" },
-            ], ((_e = config.afficherChrono) !== null && _e !== void 0 ? _e : configuration_1.default.Default.afficherChrono).toString(), function (event) {
+            ], ((_d = config.afficherChrono) !== null && _d !== void 0 ? _d : configuration_1.default.Default.afficherChrono).toString(), function (event) {
                 var _a;
                 event.stopPropagation();
                 var afficherChrono = event.target.value === true.toString();
@@ -95,7 +103,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             contenu.appendChild(this.genererConfigItem("Retour haptique (si votre navigateur est compatible)", [
                 { value: false.toString(), label: "Non" },
                 { value: true.toString(), label: "Oui" },
-            ], ((_f = config.haptique) !== null && _f !== void 0 ? _f : configuration_1.default.Default.haptique).toString(), function (event) {
+            ], ((_e = config.haptique) !== null && _e !== void 0 ? _e : configuration_1.default.Default.haptique).toString(), function (event) {
                 var _a, _b;
                 event.stopPropagation();
                 var haptique = event.target.value === true.toString();
