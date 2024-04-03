@@ -2,6 +2,7 @@ import { Schema, model, Document } from 'mongoose';
 
 export interface Word extends Document {
   title: string;
+  word: string;
   description?: string;
   synonyms?: string[];
   antonyms?: string[];
@@ -11,6 +12,11 @@ export interface Word extends Document {
 // Define the Mongoose schema
 const wordSchema = new Schema<Word>(
   {
+    word: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     title: {
       type: String,
       required: true,

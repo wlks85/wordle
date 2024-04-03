@@ -13,7 +13,6 @@ WordDescriptionController.get("/:word", AsyncExceptionWrapper(async (req: Reques
 
 WordDescriptionController.post("/", AsyncExceptionWrapper(async (req: Request, res: Response,) => {
     const payload: Word = req.body;
-    console.log("Payload", payload);
     const word = await DictionaryService.saveAWord(payload);
     res.json({data: word});
 }));
