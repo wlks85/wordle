@@ -9,7 +9,7 @@ const validateWord = (word: Word): boolean => {
 export class DictionaryService {
     public static async getWordByName(keyword: string): Promise<Word> {
         if(/\s/.test(keyword)) throw new Error("400- Bad request");
-        const word: Word |null = await WordModel.findOne({title: keyword});
+        const word: Word |null = await WordModel.findOne({word: new RegExp(keyword, "i")});
         if(!word) throw new Error(`404- requested resource ${keyword} is not found`);
         return word;
     }
