@@ -54,6 +54,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             this._gestionnaire = gestionnaire;
             this._motDescription = "";
             this._mot = "";
+            this._word = null;
             this._motDescButton = document.getElementById("mot-description-button");
             this._motDescButton
                 .addEventListener("click", (function () {
@@ -70,7 +71,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                             _a = this;
                             return [4 /*yield*/, this.getWordDescription(mot)];
                         case 1:
-                            _a._motDescription = _b.sent();
+                            _a._word = _b.sent();
                             this._motDescButton.classList.remove("hide");
                             return [2 /*return*/];
                     }
@@ -78,11 +79,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             });
         };
         MotDeDescriptionPanel.prototype.afficher = function () {
+            var _a, _b, _c, _d;
             return __awaiter(this, void 0, void 0, function () {
-                var title, contents;
-                return __generator(this, function (_a) {
+                var title, word, description, contents;
+                return __generator(this, function (_e) {
                     title = "Description du mot";
-                    contents = "\n        <div class=\"word-description\">\n            <div class=\"word-description title\">".concat(this._mot, "</div>\n            <div class=\"word-description desc\">").concat(this._motDescription, "</div>\n        </div>\n        ");
+                    word = (_b = (_a = this._word) === null || _a === void 0 ? void 0 : _a.title) !== null && _b !== void 0 ? _b : "Impossible de trouver les métadonnées des mots";
+                    description = (_d = (_c = this._word) === null || _c === void 0 ? void 0 : _c.description) !== null && _d !== void 0 ? _d : "";
+                    contents = "\n        <div class=\"word-description\">\n            <div class=\"word-description title\">".concat(word, "</div>\n            <div class=\"word-description desc\">").concat(description, "</div>\n        </div>\n        ");
                     this._panelManager.setContenu(title, contents);
                     this._panelManager.afficherPanel();
                     return [2 /*return*/];
@@ -99,7 +103,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                             return [4 /*yield*/, (0, httpHelper_1.HttpRequestHelper)("words/".concat(word), { method: 'GET' })];
                         case 1:
                             response = _a.sent();
-                            return [2 /*return*/, response.data.description];
+                            return [2 /*return*/, response.data];
                         case 2:
                             error_1 = _a.sent();
                             return [2 /*return*/, "Could not fetch word description"];

@@ -3,23 +3,23 @@
   --epaisseur-bordure-cellule: 1px;
   --epaisseur-padding-cellule: 2px;
   --couleur-bar-max: rgb(231, 0, 42);
-  --couleur-bien-place: rgb(231, 0, 42);
-  --couleur-mal-place: rgb(255, 189, 0);
-  --couleur-fond-grille: rgb(0, 119, 199);
+  --couleur-bien-place: rgb(190, 30, 45);
+  --couleur-mal-place: rgb(49, 76, 116);
+  --couleur-fond-grille: rgb(189, 196, 206);
   --couleur-non-trouve: rgb(112, 112, 112);
-  --couleur-icone: rgb(200, 200, 200);
+  --couleur-icone: rgb(255, 255, 255);
   --couleur-fond-rgb: 43, 43, 43;
-  --couleur-fond: rgb(var(--couleur-fond-rgb));
-  --couleur-bordure: rgb(200, 200, 200);
+  --couleur-fond: rgb(142, 156, 176);
+  --couleur-bordure: rgb(255, 255, 255);
   --couleur-bordure-grille: #ffffff;
-  --couleur-police: #ffffff;
+  --couleur-police: rgb(255,255,255);
   --couleur-police-grille: rgb(255, 255, 255);
   --couleur-police-grille-pas-curseur: rgb(255, 255, 255, 0.65);
-  --couleur-lettre-speciale: rgb(75, 75, 75);
+  --couleur-lettre-speciale: rgb(96, 116, 146);
   --couleur-lettre-survole: rgba(75, 75, 75, 0.65);
   --couleur-lettre-speciale-survole: rgba(75, 75, 75, 0.65);
-  --couleur-lettre-survole-bien-place: rgba(231, 0, 42, 0.65);
-  --couleur-lettre-survole-mal-place: rgba(255, 189, 0, 0.65);
+  --couleur-lettre-survole-bien-place: rgba(0, 135, 231, 0.65);
+  --couleur-lettre-survole-mal-place: rgb(49, 76, 116);
   --taille-icone: 24px;
   --taille-icone-zone: 48px;
 }
@@ -37,7 +37,7 @@
 body {
   font-family: "Roboto Regular", Ubuntu, Arial, Helvetica, sans-serif;
   font-size: 32px;
-  background-color: var(--couleur-fond);
+  background-color: rgb(219 229 238);
   max-height: 95vh;
   height: 95vh;
   height: -webkit-fill-available; /* Seulement pour safari et sa flotting bar */
@@ -54,6 +54,7 @@ body {
   margin-right: 25%;
   justify-content: space-between;
   height: 100%;
+  background-color: rgb(142, 156, 175);
 }
 
 header {

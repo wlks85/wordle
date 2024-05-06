@@ -13,6 +13,11 @@
     var mongoose_1 = require("mongoose");
     // Define the Mongoose schema
     var wordSchema = new mongoose_1.Schema({
+        word: {
+            type: String,
+            required: true,
+            unique: true,
+        },
         title: {
             type: String,
             required: true,

@@ -44,10 +44,12 @@ export default class MotDeDescriptionPanel {
 
     public async afficher() {
         let title: string = "Description du mot";
+        const word = this._word?.title ?? "Impossible de trouver les métadonnées des mots";
+        const description = this._word?.description ?? "";
         let contents: string = `
         <div class="word-description">
-            <div class="word-description title">${this._word?.title}</div>
-            <div class="word-description desc">${this._word?.description}</div>
+            <div class="word-description title">${word}</div>
+            <div class="word-description desc">${description}</div>
         </div>
         `;
 
