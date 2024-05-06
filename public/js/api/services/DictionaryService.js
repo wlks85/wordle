@@ -75,7 +75,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                         case 0:
                             if (/\s/.test(keyword))
                                 throw new Error("400- Bad request");
-                            return [4 /*yield*/, entities_1.WordModel.findOne({ title: keyword })];
+                            return [4 /*yield*/, entities_1.WordModel.findOne({ word: new RegExp(keyword, "i") })];
                         case 1:
                             word = _a.sent();
                             if (!word)

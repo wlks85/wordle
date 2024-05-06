@@ -43,6 +43,7 @@ export default class MotDeDescriptionPanel {
     }
 
     public async afficher() {
+        console.trace("Called from.")
         let title: string = "Description du mot";
         const word = this._word?.title ?? "Impossible de trouver les métadonnées des mots";
         const description = this._word?.description ?? "";

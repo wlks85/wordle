@@ -83,6 +83,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             return __awaiter(this, void 0, void 0, function () {
                 var title, word, description, contents;
                 return __generator(this, function (_e) {
+                    console.trace("Called from.");
                     title = "Description du mot";
                     word = (_b = (_a = this._word) === null || _a === void 0 ? void 0 : _a.title) !== null && _b !== void 0 ? _b : "Impossible de trouver les métadonnées des mots";
                     description = (_d = (_c = this._word) === null || _c === void 0 ? void 0 : _c.description) !== null && _d !== void 0 ? _d : "";

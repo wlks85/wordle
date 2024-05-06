@@ -126,6 +126,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             }
             else {
                 this._datePartieEnCours = new Date();
+                this._shownDescription = "no";
             }
             if (partieEnCours.dateFinPartie) {
                 this._dateFinPartie = partieEnCours.dateFinPartie;
@@ -314,9 +315,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                                 this._finDePartiePanel.genererResume(isBonneReponse, this._motATrouver, this._resultats, duree);
                                 if (!chargementPartie)
                                     this.enregistrerPartieDansStats();
-                            }
-                            else {
-                                this._shownDescription = "no";
                             }
                             if (this._grille) {
                                 this._grille.validerMot(mot, resultats, isBonneReponse, chargementPartie, function () {
