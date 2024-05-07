@@ -45,27 +45,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 case theme_1.Theme.ClairAccessible:
                 case theme_1.Theme.SombreAccessible:
                     root.style.setProperty("--couleur-bien-place", "rgb(9, 104, 0)");
-                    root.style.setProperty("--couleur-mal-place", "rgb(219, 124, 0)");
+                    root.style.setProperty("--couleur-mal-place", "rgb(49, 76, 116)");
                     break;
                 default:
                     root.style.setProperty("--couleur-bien-place", "rgb(231, 0, 42)");
-                    root.style.setProperty("--couleur-mal-place", "rgb(255, 189, 0)");
+                    root.style.setProperty("--couleur-mal-place", "rgb(49, 76, 116)");
             }
             switch (theme) {
                 case theme_1.Theme.ClairAccessible:
                     root.style.setProperty("--couleur-lettre-survole-bien-place", "rgb(5, 61, 0)");
-                    root.style.setProperty("--couleur-lettre-survole-mal-place", "rgb(128, 72, 0)");
+                    root.style.setProperty("--couleur-lettre-survole-mal-place", "rgb(49, 76, 116)");
                     break;
                 case theme_1.Theme.SombreAccessible:
                     root.style.setProperty("--couleur-lettre-survole-bien-place", "rgba(9, 104, 0, 0.65)");
-                    root.style.setProperty("--couleur-lettre-survole-mal-place", "rgba(219, 124, 0, 0.65)");
+                    root.style.setProperty("--couleur-lettre-survole-mal-place", "rgb(49, 76, 116)");
                     break;
                 case theme_1.Theme.Clair:
                     root.style.setProperty("--couleur-lettre-survole-bien-place", "rgb(153, 0, 28)");
-                    root.style.setProperty("--couleur-lettre-survole-mal-place", "rgb(153, 112, 0)");
+                    root.style.setProperty("--couleur-lettre-survole-mal-place", "rgb(49, 76, 116)");
                 default:
                     root.style.setProperty("--couleur-lettre-survole-bien-place", "rgba(231, 0, 42, 0.65)");
-                    root.style.setProperty("--couleur-lettre-survole-mal-place", "rgba(255, 189, 0, 0.65)");
+                    root.style.setProperty("--couleur-lettre-survole-mal-place", "rgb(49, 76, 116)");
             }
         };
         return ThemeManager;

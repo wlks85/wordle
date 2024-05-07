@@ -72,7 +72,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             switch (_a.label) {
                 case 0:
                     payload = req.body;
-                    console.log("Payload", payload);
                     return [4 /*yield*/, DictionaryService_1.DictionaryService.saveAWord(payload)];
                 case 1:
                     word = _a.sent();

@@ -59,6 +59,7 @@ export default class Gestionnaire {
       this._datePartieEnCours = partieEnCours.datePartie;
     } else {
       this._datePartieEnCours = new Date();
+      this._shownDescription = "no";
     }
 
     if (partieEnCours.dateFinPartie) {
@@ -210,8 +211,6 @@ export default class Gestionnaire {
       let duree = this._dateFinPartie.getTime() - this._datePartieEnCours.getTime();
       this._finDePartiePanel.genererResume(isBonneReponse, this._motATrouver, this._resultats, duree);
       if (!chargementPartie) this.enregistrerPartieDansStats();
-    } else {
-      this._shownDescription = "no";
     }
 
     if (this._grille) {

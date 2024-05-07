@@ -57,14 +57,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                         return [4 /*yield*/, fetch("".concat(baseUrl, "/").concat(url), options)];
                     case 1:
                         response = _a.sent();
-                        if (!response.ok) {
-                            throw new Error("HTTP error! Status: ".concat(response.status));
-                        }
                         return [2 /*return*/, response.json()];
                     case 2:
                         error_1 = _a.sent();
-                        throw new Error("Request failed: ".concat(error_1.message));
-                    case 3: return [2 /*return*/];
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/, null];
                 }
             });
         });
