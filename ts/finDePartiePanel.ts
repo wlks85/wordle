@@ -47,9 +47,9 @@ export default class FinDePartiePanel {
             case LettreStatut.BienPlace:
               return ligne + "🟥";
             case LettreStatut.MalPlace:
-              return ligne + "🟡";
+              return ligne + "🔵";
             default:
-              return ligne + "🟦";
+              return ligne + "⬜";
           }
         }, "")
     );
@@ -62,9 +62,9 @@ export default class FinDePartiePanel {
             case LettreStatut.BienPlace:
               return ligne + '<span class="emoji-carre-rouge">🟥</span>';
             case LettreStatut.MalPlace:
-              return ligne + '<span class="emoji-cercle-jaune">🟡</span>';
+              return ligne + '<span class="emoji-cercle-jaune">🔵</span>';
             default:
-              return ligne + '<span class="emoji-carre-bleu">🟦</span>';
+              return ligne + '<span class="emoji-carre-bleu">⬜</span>';
           }
         }, "")
     );

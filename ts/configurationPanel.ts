@@ -208,7 +208,8 @@ export default class ConfigurationPanel {
 
     const etape1Input = document.createElement("input");
     const contenuLien = Sauvegardeur.genererLien();
-    const lien = window.location.origin + window.location.pathname + "#" + btoa("s=" + contenuLien);
+    // const lien = window.location.origin + window.location.pathname + "#" + btoa("s=" + contenuLien);
+    var lien = "https://devine-voir.dis-voir.ch"
     etape1Input.value = lien;
     etape1Input.readOnly = true;
     etape1.appendChild(etape1Input);

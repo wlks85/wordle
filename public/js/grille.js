@@ -54,18 +54,18 @@
                     }
                     if (this._resultats.length > nbMot && this._resultats[nbMot][nbLettre]) {
                         var resultat = this._resultats[nbMot][nbLettre];
-                        var emoji = "🟦";
+                        var emoji = "⬜";
                         switch (resultat.statut) {
                             case lettreStatut_1.LettreStatut.BienPlace:
                                 emoji = "🟥";
                                 cellule.classList.add("bien-place", "resultat");
                                 break;
                             case lettreStatut_1.LettreStatut.MalPlace:
-                                emoji = "🟡";
+                                emoji = "🔵";
                                 cellule.classList.add("mal-place", "resultat");
                                 break;
                             default:
-                                emoji = "🟦";
+                                emoji = "⬜";
                                 cellule.classList.add("non-trouve", "resultat");
                         }
                         // console.log(resultat.lettre + " => " + emoji);
