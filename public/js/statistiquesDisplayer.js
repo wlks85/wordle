@@ -51,8 +51,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             statsNumeriques.appendChild(this.creerStatNumerique("Victoires", stats.partiesGagnees, stats.partiesJouees));
             statsNumeriques.appendChild(this.creerStatNumerique("Moyenne", this.getMoyenne(stats.repartition)));
             statsNumeriques.appendChild(this.creerStatNumerique('Lettres <span class="emoji-carre-rouge">🟥</span>', stats.lettresRepartitions.bienPlace));
-            statsNumeriques.appendChild(this.creerStatNumerique('Lettres <span class="emoji-cercle-jaune">🟡</span>', stats.lettresRepartitions.malPlace));
-            statsNumeriques.appendChild(this.creerStatNumerique('Lettres <span class="emoji-carre-bleu">🟦</span>', stats.lettresRepartitions.nonTrouve));
+            statsNumeriques.appendChild(this.creerStatNumerique('Lettres <span class="emoji-cercle-jaune">🔵</span>', stats.lettresRepartitions.malPlace));
+            statsNumeriques.appendChild(this.creerStatNumerique('Lettres <span class="emoji-carre-bleu">⬜</span>', stats.lettresRepartitions.nonTrouve));
             statsArea.appendChild(statsNumeriques);
             return statsArea;
         };
@@ -107,12 +107,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         };
         StatistiquesDisplayer.genererResumeTexteStatistiques = function (stats) {
             var max = this.getMax(stats.repartition);
-            return "\uD83D\uDFE1 Statistiques de #SUTOM \uD83D\uDFE1\n\n1/6 - ".concat(this.genererBarTexte(stats.repartition[1], max), " ").concat(stats.repartition[1], "\n2/6 - ").concat(this.genererBarTexte(stats.repartition[2], max), " ").concat(stats.repartition[2], "\n3/6 - ").concat(this.genererBarTexte(stats.repartition[3], max), " ").concat(stats.repartition[3], "\n4/6 - ").concat(this.genererBarTexte(stats.repartition[4], max), " ").concat(stats.repartition[4], "\n5/6 - ").concat(this.genererBarTexte(stats.repartition[5], max), " ").concat(stats.repartition[5], "\n6/6 - ").concat(this.genererBarTexte(stats.repartition[6], max), " ").concat(stats.repartition[6], "\n-/6 - ").concat(this.genererBarTexte(stats.repartition["-"], max), " ").concat(stats.repartition["-"], "\n\nMoy. : ").concat(this.getMoyenne(stats.repartition).toLocaleString("fr-FR", { maximumFractionDigits: 2 }), "\n").concat(stats.lettresRepartitions.bienPlace, "\uD83D\uDFE5- ").concat(stats.lettresRepartitions.malPlace, "\uD83D\uDFE1- ").concat(stats.lettresRepartitions.nonTrouve, "\uD83D\uDFE6");
+            return "\uD83D\uDD35 Statistiques de #SUTOM \uD83D\uDD35\n\n1/6 - ".concat(this.genererBarTexte(stats.repartition[1], max), " ").concat(stats.repartition[1], "\n2/6 - ").concat(this.genererBarTexte(stats.repartition[2], max), " ").concat(stats.repartition[2], "\n3/6 - ").concat(this.genererBarTexte(stats.repartition[3], max), " ").concat(stats.repartition[3], "\n4/6 - ").concat(this.genererBarTexte(stats.repartition[4], max), " ").concat(stats.repartition[4], "\n5/6 - ").concat(this.genererBarTexte(stats.repartition[5], max), " ").concat(stats.repartition[5], "\n6/6 - ").concat(this.genererBarTexte(stats.repartition[6], max), " ").concat(stats.repartition[6], "\n-/6 - ").concat(this.genererBarTexte(stats.repartition["-"], max), " ").concat(stats.repartition["-"], "\n\nMoy. : ").concat(this.getMoyenne(stats.repartition).toLocaleString("fr-FR", { maximumFractionDigits: 2 }), "\n").concat(stats.lettresRepartitions.bienPlace, "\uD83D\uDFE5- ").concat(stats.lettresRepartitions.malPlace, "\uD83D\uDD35- ").concat(stats.lettresRepartitions.nonTrouve, "\u2B1C");
         };
         StatistiquesDisplayer.genererBarTexte = function (valeur, max) {
             if (valeur === 0)
                 return "";
-            var caractere = valeur === max ? "🟥" : "🟦";
+            var caractere = valeur === max ? "🟥" : "⬜";
             var longueurEnNbChars = Math.round((valeur / max) * 8);
             return longueurEnNbChars === 0 ? caractere : caractere.repeat(longueurEnNbChars);
         };

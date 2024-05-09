@@ -90,7 +90,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             (0, lib_1.InitDb)()
                 .then(function () {
                 server.listen(port, function () {
-                    console.log("Jeu d\u00E9marr\u00E9 : http://localhost:".concat(port));
+                    console.log("Jeu d\u00E9marr\u00E9 : http://127.0.0.1:".concat(port));
                 });
             }).catch(function (err) {
                 console.error(err.message);

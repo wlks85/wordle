@@ -49,8 +49,8 @@ export default class StatistiquesDisplayer {
     statsNumeriques.appendChild(this.creerStatNumerique("Victoires", stats.partiesGagnees, stats.partiesJouees));
     statsNumeriques.appendChild(this.creerStatNumerique("Moyenne", this.getMoyenne(stats.repartition)));
     statsNumeriques.appendChild(this.creerStatNumerique('Lettres <span class="emoji-carre-rouge">🟥</span>', stats.lettresRepartitions.bienPlace));
-    statsNumeriques.appendChild(this.creerStatNumerique('Lettres <span class="emoji-cercle-jaune">🟡</span>', stats.lettresRepartitions.malPlace));
-    statsNumeriques.appendChild(this.creerStatNumerique('Lettres <span class="emoji-carre-bleu">🟦</span>', stats.lettresRepartitions.nonTrouve));
+    statsNumeriques.appendChild(this.creerStatNumerique('Lettres <span class="emoji-cercle-jaune">🔵</span>', stats.lettresRepartitions.malPlace));
+    statsNumeriques.appendChild(this.creerStatNumerique('Lettres <span class="emoji-carre-bleu">⬜</span>', stats.lettresRepartitions.nonTrouve));
 
     statsArea.appendChild(statsNumeriques);
 
@@ -125,7 +125,7 @@ export default class StatistiquesDisplayer {
   public static genererResumeTexteStatistiques(stats: SauvegardeStats): string {
     const max = this.getMax(stats.repartition);
 
-    return `🟡 Statistiques de #SUTOM 🟡
+    return `🔵 Statistiques de #SUTOM 🔵
 
 1/6 - ${this.genererBarTexte(stats.repartition[1], max)} ${stats.repartition[1]}
 2/6 - ${this.genererBarTexte(stats.repartition[2], max)} ${stats.repartition[2]}
@@ -136,13 +136,13 @@ export default class StatistiquesDisplayer {
 -/6 - ${this.genererBarTexte(stats.repartition["-"], max)} ${stats.repartition["-"]}
 
 Moy. : ${this.getMoyenne(stats.repartition).toLocaleString("fr-FR", { maximumFractionDigits: 2 })}
-${stats.lettresRepartitions.bienPlace}🟥- ${stats.lettresRepartitions.malPlace}🟡- ${stats.lettresRepartitions.nonTrouve}🟦`;
+${stats.lettresRepartitions.bienPlace}🟥- ${stats.lettresRepartitions.malPlace}🔵- ${stats.lettresRepartitions.nonTrouve}⬜`;
   }
 
   private static genererBarTexte(valeur: number, max: number): string {
     if (valeur === 0) return "";
 
-    const caractere = valeur === max ? "🟥" : "🟦";
+    const caractere = valeur === max ? "🟥" : "⬜";
     const longueurEnNbChars = Math.round((valeur / max) * 8);
 
     return longueurEnNbChars === 0 ? caractere : caractere.repeat(longueurEnNbChars);

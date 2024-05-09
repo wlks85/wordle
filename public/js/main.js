@@ -15,7 +15,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     var gestionnaire_1 = __importDefault(require("./gestionnaire"));
     var Main = /** @class */ (function () {
         function Main() {
-            console.log("🟥🟦🟦🟡🟡🟡🟦🟦");
+            console.log("🟥⬜⬜🔵🔵🔵⬜⬜");
             var gestionnaire = new gestionnaire_1.default();
         }
         return Main;

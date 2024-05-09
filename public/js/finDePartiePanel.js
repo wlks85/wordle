@@ -81,9 +81,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                         case lettreStatut_1.LettreStatut.BienPlace:
                             return ligne + "🟥";
                         case lettreStatut_1.LettreStatut.MalPlace:
-                            return ligne + "🟡";
+                            return ligne + "🔵";
                         default:
-                            return ligne + "🟦";
+                            return ligne + "⬜";
                     }
                 }, "");
             });
@@ -95,9 +95,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                         case lettreStatut_1.LettreStatut.BienPlace:
                             return ligne + '<span class="emoji-carre-rouge">🟥</span>';
                         case lettreStatut_1.LettreStatut.MalPlace:
-                            return ligne + '<span class="emoji-cercle-jaune">🟡</span>';
+                            return ligne + '<span class="emoji-cercle-jaune">🔵</span>';
                         default:
-                            return ligne + '<span class="emoji-carre-bleu">🟦</span>';
+                            return ligne + '<span class="emoji-carre-bleu">⬜</span>';
                     }
                 }, "");
             });

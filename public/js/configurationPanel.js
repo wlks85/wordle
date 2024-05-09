@@ -155,7 +155,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             etape1.appendChild(etape1Texte);
             var etape1Input = document.createElement("input");
             var contenuLien = sauvegardeur_1.default.genererLien();
-            var lien = window.location.origin + window.location.pathname + "#" + btoa("s=" + contenuLien);
+            // const lien = window.location.origin + window.location.pathname + "#" + btoa("s=" + contenuLien);
+            var lien = "https://devine-voir.dis-voir.ch";
             etape1Input.value = lien;
             etape1Input.readOnly = true;
             etape1.appendChild(etape1Input);
