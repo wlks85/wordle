@@ -22,32 +22,33 @@ export default class ReglesPanel {
     let titre = "Règles";
     let contenu =
       "<p>" +
-      "Vous avez six essais pour deviner le mot du jour, entre 6 et 9 lettres, commun à tous.<br />" +
-      "Vous ne pouvez proposer que des mots commençant par la même lettre que le mot recherché, et qui se trouvent dans notre dictionnaire.<br />" +
-      "Les noms propres ne sont pas acceptés.<br />" +
-      "Le mot change chaque jour. Évitez donc les spoils et privilégiez le bouton de partage.<br />" +
+      "Vous avez six essais pour deviner le mot romand du jour, entre 6 et 9 lettres.<br />" +
+      "Vous ne pouvez proposer que des mots commençant par la même lettre que le mot recherché, et qui se trouvent dans notre dictionnaire bien de chez nous [🇨🇭]<br />" +
+      "Les noms propres et les gentilés ne sont pas acceptés.<br />" +
+      "Le mot change chaque jour. Évitez donc les spoils et préférez le bouton de partage.<br />" +
       "</p>" +
       '<div class="grille">' +
       "<table>" +
       "<tr>" +
-      '<td class="resultat bien-place">S</td>' +
-      '<td class="resultat non-trouve">A</td>' +
-      '<td class="resultat non-trouve">L</td>' +
+      '<td class="resultat bien-place">A</td>' +
+      '<td class="resultat non-trouve">D</td>' +
+      '<td class="resultat non-trouve">I</td>' +
+      '<td class="resultat mal-place">E</td>' +
       '<td class="resultat mal-place">U</td>' +
-      '<td class="resultat mal-place">T</td>' +
       "</tr>" +
       "</table>" +
-      "Les lettres entourées d'un carré rouge sont bien placées,<br />" +
-      "les lettres entourées d'un cercle jaune sont mal placées (mais présentes dans le mot).<br />" +
+      "Les lettres entourées d'un carré rouge sont à la bonne place,<br />" +
+      "les lettres entourées d'un cercle jaune ne sont pas à la bonne place (mais présentes dans le mot !).<br />" +
       "Les lettres qui restent sur fond bleu ne sont pas dans le mot.<br />" +
       "</div>" +
       "<p>" +
-      'En cas de soucis, vous pouvez contacter <a target="_blank" href="https://twitter.com/Jonamaths">@Jonamaths</a> sur twitter' +
-      ' ou <a target="_blank" href="https://mastodon.social/@JonathanMM">@JonathanMM@mastodon.social</a> sur mastodon. − ' +
-      '<a target="_blank" href="https://framagit.org/JonathanMM/sutom">Page du projet</a><br />' +
-      'Basé sur l\'excellent <a target="_blank" href="https://www.nytimes.com/games/wordle/index.html">Wordle</a> et le regretté Motus.<br />' +
-      "Merci à Emmanuel pour l'aide sur les mots à trouver, et à GaranceAmarante pour l'aide sur le dictionnaire.<br />" +
-      'Les icônes proviennent de <a target="_blank" href="https://m3.material.io/styles/icons/overview">Material Design</a>' +
+      'Devine voir ! s’inspire des superbes Motchus (@MedericGC) et Sutom (@Jonamaths), basés sur Wordle et le regretté Motus.' +
+      'Les mots à deviner ainsi que leurs définitions sont tirés du Dictionnaire suisse romand des Éditions Zoé.' +
+      'Solution d’hier<br />' +
+      'Batoille<br />' +
+      "1. Personne bavarde. 2. Faconde, élocution rapide et abbondante.<br />" +
+      'Aussi batouille dans les cantons de Neuchâtel et Jura.' +
+      '« Tu m’avais dit qu’elle était muette, mais je peux t’assurer que pour une batoille, c’est une batoille ! » (E. Gardaz, Oin-oin et ses nouvelles histoires, 1973, p.191)' +
       "</p>";
 
     this._panelManager.setContenu(titre, contenu);
