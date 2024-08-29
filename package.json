@@ -1,5 +1,5 @@
 {
-  "name": "sutom",
+  "name": "MÔÔTÜS",
   "version": "1.0.0",
   "description": "Jeu de lettres en ligne (et en français)",
   "main": "js/main.js",
@@ -36,6 +36,6 @@
     "word game"
   ],
   "author": "JonathanMM <jonathanmm@free.fr>",
-  "repository": "https://framagit.org/JonathanMM/sutom",
+  "repository": "https://framagit.org/JonathanMM/MÔÔTÜS",
   "license": "MIT"
 }

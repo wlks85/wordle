@@ -37,32 +37,35 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         ReglesPanel.prototype.afficher = function () {
             var titre = "Règles";
             var contenu = "<p>" +
-                "Vous avez six essais pour deviner le mot du jour, entre 6 et 9 lettres, commun à tous.<br />" +
-                "Vous ne pouvez proposer que des mots commençant par la même lettre que le mot recherché, et qui se trouvent dans notre dictionnaire.<br />" +
-                "Les noms propres ne sont pas acceptés.<br />" +
-                "Le mot change chaque jour. Évitez donc les spoils et privilégiez le bouton de partage.<br />" +
+                "Le jeu repose sur la recherche d’un mot qui comporte entre 6 et 9 lettres.<br />" +
+                "Vous disposez de six essais pour deviner le mot du jour.<br />" +
+                "Les mots à deviner sont des mots typiquement romands, et si on peut les entendre en France voisine, ils sont à coup sûr inconnus du français que l’on parle à Paris et en Île-de-France !<br />" +
                 "</p>" +
                 '<div class="grille">' +
                 "<table>" +
                 "<tr>" +
-                '<td class="resultat bien-place">S</td>' +
-                '<td class="resultat non-trouve">A</td>' +
-                '<td class="resultat non-trouve">L</td>' +
+                '<td class="resultat bien-place">A</td>' +
+                '<td class="resultat non-trouve">D</td>' +
+                '<td class="resultat non-trouve">I</td>' +
+                '<td class="resultat mal-place">E</td>' +
                 '<td class="resultat mal-place">U</td>' +
-                '<td class="resultat mal-place">T</td>' +
                 "</tr>" +
-                "</table>" +
-                "Les lettres entourées d'un carré rouge sont bien placées,<br />" +
-                "les lettres entourées d'un cercle jaune sont mal placées (mais présentes dans le mot).<br />" +
-                "Les lettres qui restent sur fond bleu ne sont pas dans le mot.<br />" +
+                "</table></br>" +
+                "🟥 Les lettres entourées d'un carré rouge sont bien placées (joli !).<br />" +
+                "🔵 Les lettres entourées d'un cercle bleu ne sont pas à la bonne place (mais présentes dans le mot !).<br />" +
+                "⬜ Les lettres qui restent sur fond blanc ne sont pas dans le mot (de bleu !).<br />" +
                 "</div>" +
                 "<p>" +
-                'En cas de soucis, vous pouvez contacter <a target="_blank" href="https://twitter.com/Jonamaths">@Jonamaths</a> sur twitter' +
-                ' ou <a target="_blank" href="https://mastodon.social/@JonathanMM">@JonathanMM@mastodon.social</a> sur mastodon. − ' +
-                '<a target="_blank" href="https://framagit.org/JonathanMM/sutom">Page du projet</a><br />' +
-                'Basé sur l\'excellent <a target="_blank" href="https://www.nytimes.com/games/wordle/index.html">Wordle</a> et le regretté Motus.<br />' +
-                "Merci à Emmanuel pour l'aide sur les mots à trouver, et à GaranceAmarante pour l'aide sur le dictionnaire.<br />" +
-                'Les icônes proviennent de <a target="_blank" href="https://m3.material.io/styles/icons/overview">Material Design</a>' +
+                '<strong>Attention !</strong> Vous ne pouvez proposer que des mots commençant par la même lettre que le mot recherché.' +
+                'Les noms propres et les gentilés ne sont pas acceptés.' +
+                'Le mot change chaque jour.<br />' +
+                'Évitez donc de divulgâcher la solution sur les réseaux sociaux et préférez le bouton de partage !<br /><br />' +
+                'Crédits<br /><br />' +
+                "MOOTÜS est la variante romande de MOTCHUS <https://motchus.fr/>, la version marseillaise du regretté MOTUS<br />" +
+                '<https://fr.wikipedia.org/wiki/Motus_(jeu_t%C3%A9l%C3%A9vis%C3%A9)>, mis en ligne par @ze_armavi <https://x.com/ze_armavi> sur la base du dico de @MedericGC <https://x.com/MedericGC>. L’interface est adaptée de SUTOM <https://sutom.nocle.fr/#> (@Jonamaths <https://x.com/jonamaths>). Les mots romands sont tirés du Dictionnaire suisse romand <https://www.editionszoe.ch/livre/dictionnaire-suisse-romand-particularites-du-francais-contemporain-1> d’André Thibault, les mots du lexique standard sont ceux de la base Lexique <http://www.lexique.org/>. MOOTÜS a été adapté par l’équipe iBros GmbH <https://www.ibros.ch/> dans le cadre du projet FNS Agora Dis voir ! <https://dis-voir.ch/><br />' +
+                '<strong>[NEW - solution text of the word of the day before: - here is an example:]</strong><br />' +
+                'Solution du mot d’hier<br/ >' +
+                "<b> Batoille </b>. Nom commun ou adjectif, qui désigne aussi bien une personne bavarde qu’une élocution rapide et abondante. La variante batouille a été enregistrée dans les cantons de Neuchâtel et Jura. Ex. « Tu m’avais dit qu’elle était muette, mais je peux t’assurer que pour une batoille, c’est une batoille ! » (E. Gardaz, Oin-oin et ses nouvelles histoires, 1973, p.191)" +
                 "</p>";
             this._panelManager.setContenu(titre, contenu);
             this._panelManager.setClasses(["regles-panel"]);

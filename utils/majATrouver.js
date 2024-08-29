@@ -37,7 +37,7 @@ fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
           "-" +
           datePartie.getDate().toString().padStart(2, "0");
 
-        return resolve(Buffer.from(instanceConfiguration.default.idPartieParDefaut + "-" + datePartieStr, "utf-8").toString("base64"));
+        return resolve(Buffer.from(instanceConfiguration.default.idPartieParDefaut + "-" + datePartieStr, "utf-8").toString("64"));
       }).then((nomFichier) =>
         fs.access("public/mots/" + nomFichier + ".txt", fs.constants.F_OK, (err) => {
           if (err) {

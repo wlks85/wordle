@@ -79,7 +79,7 @@ export default class FinDePartiePanel {
     let afficherChrono = (Sauvegardeur.chargerConfig() ?? Configuration.Default).afficherChrono;
 
     const entete =
-      "#SUTOM #" +
+      "MÔÔTÜS" +
       numeroGrille +
       " " +
       (estBonneReponse ? resultats.length : "-") +
@@ -112,7 +112,7 @@ export default class FinDePartiePanel {
 
   private attacherPartage(): void {
     const resumeBouton = document.getElementById("fin-de-partie-panel-resume-bouton") as HTMLElement;
-    CopieHelper.attacheBoutonCopieLien(resumeBouton, this._resumeTexte + "\n\nhttps://sutom.nocle.fr", "Résumé copié dans le presse papier.");
+    CopieHelper.attacheBoutonCopieLien(resumeBouton, this._resumeTexte + "\n\nhttps://mootus.dis-voir.ch", "Résumé copié dans le presse papier.");
   }
 
   public afficher(): void {
@@ -197,6 +197,6 @@ export default class FinDePartiePanel {
 
     let resumeTexte = StatistiquesDisplayer.genererResumeTexteStatistiques(stats);
 
-    CopieHelper.attacheBoutonCopieLien(resumeBouton, resumeTexte + "\n\nhttps://sutom.nocle.fr", "Résumé copié dans le presse papier.");
+    CopieHelper.attacheBoutonCopieLien(resumeBouton, resumeTexte + "\n\nhttps://MÔÔTÜS.nocle.fr", "Résumé copié dans le presse papier.");
   }
 }

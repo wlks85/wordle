@@ -44,7 +44,7 @@ function ecrireListeNettoyee(dictionnaire) {
   });
 }
 
-fs.readFile("data/mots.txt", "UTF8", function (erreur, contenu) {
+fs.readFile("data/merged_output.txt", "UTF8", function (erreur, contenu) {
   console.log("Chargement de la liste des mots");
   //console.log(erreur);
   var dictionnaire = contenu

@@ -108,7 +108,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             this._partieEstFinie = true;
             var numeroGrille = Math.round((dateGrille - origine) / (24 * 3600 * 1000)) + 1;
             var afficherChrono = ((_a = sauvegardeur_1.default.chargerConfig()) !== null && _a !== void 0 ? _a : configuration_1.default.Default).afficherChrono;
-            var entete = "#SUTOM #" +
+            var entete = "MÔÔTÜS" +
                 numeroGrille +
                 " " +
                 (estBonneReponse ? resultats.length : "-") +
@@ -136,7 +136,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         };
         FinDePartiePanel.prototype.attacherPartage = function () {
             var resumeBouton = document.getElementById("fin-de-partie-panel-resume-bouton");
-            copieHelper_1.default.attacheBoutonCopieLien(resumeBouton, this._resumeTexte + "\n\nhttps://sutom.nocle.fr", "Résumé copié dans le presse papier.");
+            copieHelper_1.default.attacheBoutonCopieLien(resumeBouton, this._resumeTexte + "\n\nhttps://mootus.dis-voir.ch", "Résumé copié dans le presse papier.");
         };
         FinDePartiePanel.prototype.afficher = function () {
             var _this = this;
@@ -214,7 +214,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         FinDePartiePanel.prototype.attacherPartageStats = function (stats) {
             var resumeBouton = document.getElementById("fin-de-partie-panel-stats-bouton");
             var resumeTexte = statistiquesDisplayer_1.default.genererResumeTexteStatistiques(stats);
-            copieHelper_1.default.attacheBoutonCopieLien(resumeBouton, resumeTexte + "\n\nhttps://sutom.nocle.fr", "Résumé copié dans le presse papier.");
+            copieHelper_1.default.attacheBoutonCopieLien(resumeBouton, resumeTexte + "\n\nhttps://MÔÔTÜS.nocle.fr", "Résumé copié dans le presse papier.");
         };
         return FinDePartiePanel;
     }());

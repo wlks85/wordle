@@ -1,6 +1,6 @@
 # SUTOM
 
-Jeu de lettres en ligne (et en français) basé sur Wordle. Le jeu se trouve à l'adresse https://sutom.nocle.fr
+Jeu de lettres en ligne (et en français) basé sur Wordle. Le jeu se trouve à l'adresse https://MÔÔTÜS.nocle.fr
 
 ## Contributions
 
@@ -27,9 +27,9 @@ npm run start:dev
 Un Dockerfile est disponible pour pouvoir démarrer le site en local sans `npm`.
 
 ```sh
-docker build --build-arg MODE=development -t sutom .
+docker build --build-arg MODE=development -t MÔÔTÜS .
 
-docker run -it --rm -p 4000:4000 sutom npm run start:dev
+docker run -it --rm -p 4000:4000 MÔÔTÜS npm run start:dev
 ```
 
 ### Accès au site
@@ -57,9 +57,9 @@ npm start
 On lance Docker en production en créant l'image et en la lançant sans les options particulières pour le mode "development" :
 
 ```sh
-docker build -t sutom .
+docker build -t MÔÔTÜS .
 
-docker run -it --rm -p 4000:4000 sutom
+docker run -it --rm -p 4000:4000 MÔÔTÜS
 ```
 
 ## Autres infos et remerciements
