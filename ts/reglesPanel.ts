@@ -46,10 +46,10 @@ export default class ReglesPanel {
       'Le mot change chaque jour.<br />' +
       'Évitez donc de divulgâcher la solution sur les réseaux sociaux et préférez le bouton de partage !<br /><br />' +
       'Crédits<br /><br />' + 
-      "MOOTÜS est la variante romande de MOTCHUS <https://motchus.fr/>, la version marseillaise du regretté MOTUS<br />" +
-      '<https://fr.wikipedia.org/wiki/Motus_(jeu_t%C3%A9l%C3%A9vis%C3%A9)>, mis en ligne par @ze_armavi <https://x.com/ze_armavi> sur la base du dico de @MedericGC <https://x.com/MedericGC>. L’interface est adaptée de SUTOM <https://sutom.nocle.fr/#> (@Jonamaths <https://x.com/jonamaths>). Les mots romands sont tirés du Dictionnaire suisse romand <https://www.editionszoe.ch/livre/dictionnaire-suisse-romand-particularites-du-francais-contemporain-1> d’André Thibault, les mots du lexique standard sont ceux de la base Lexique <http://www.lexique.org/>. MOOTÜS a été adapté par l’équipe iBros GmbH <https://www.ibros.ch/> dans le cadre du projet FNS Agora Dis voir ! <https://dis-voir.ch/><br />' +
-      '<strong>[NEW - solution text of the word of the day before: - here is an example:]</strong><br />' +
-      'Solution du mot d’hier<br/ >' +
+      "MOOTÜS est la variante romande de <a href='https://motchus.fr/' target='_blank'>MOTCHUS</a>, la version marseillaise du regretté <a href='https://fr.wikipedia.org/wiki/Motus_(jeu_t%C3%A9l%C3%A9vis%C3%A9)' target='_blank'>MOTUS</a><br />" +
+      ', mis en ligne par <a href="https://x.com/ze_armavi" target="_blank">@ze_armavi</a> sur la base du dico de <a href="https://x.com/MedericGC" target="_blank">@MedericGC</a>. L’interface est adaptée de <a href="https://sutom.nocle.fr/#" target="_blank">SUTOM</a> (<a href="https://x.com/jonamaths" target="_blank">@Jonamaths</a>). Les mots romands sont tirés du <a href="https://www.editionszoe.ch/livre/dictionnaire-suisse-romand-particularites-du-francais-contemporain-1" target="_blank">Dictionnaire suisse romand</a> d’André Thibault, les mots du lexique standard sont ceux de la base <a href="http://www.lexique.org/" target="_blank">Lexique</a>. MOOTÜS a été adapté par l’équipe <a href="https://www.ibros.ch/" target="_blank">iBros GmbH</a> dans le cadre du projet <a href="https://dis-voir.ch/" target="_blank">FNS Agora Dis voir !</a><br />' +
+      '<br /><br/>' +
+      'Solution du mot d’hier<br/ ><br/>' +
       "<b> Batoille </b>. Nom commun ou adjectif, qui désigne aussi bien une personne bavarde qu’une élocution rapide et abondante. La variante batouille a été enregistrée dans les cantons de Neuchâtel et Jura. Ex. « Tu m’avais dit qu’elle était muette, mais je peux t’assurer que pour une batoille, c’est une batoille ! » (E. Gardaz, Oin-oin et ses nouvelles histoires, 1973, p.191)" +
       "</p>";
 
