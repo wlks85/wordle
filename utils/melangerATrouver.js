@@ -17,7 +17,10 @@ function shuffle(array) {
     currentIndex--;
 
     // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
   }
 
   return array;
@@ -46,11 +49,18 @@ fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
     if (motsMelanges.length === 0) break;
     // On vérifie que le mélange corresponde à nos critères
     let premieresLettres = [];
-    for (let i = Math.max(0, motsMelangesFige.length - 5); i < motsMelangesFige.length; i++) {
+    for (
+      let i = Math.max(0, motsMelangesFige.length - 5);
+      i < motsMelangesFige.length;
+      i++
+    ) {
       premieresLettres.push(motsMelangesFige[i][0].toUpperCase());
     }
     // Ainsi que la dernière longueur
-    let derniereLongueur = motsMelangesFige.length > 0 ? motsMelangesFige[motsMelangesFige.length - 1].length : 0;
+    let derniereLongueur =
+      motsMelangesFige.length > 0
+        ? motsMelangesFige[motsMelangesFige.length - 1].length
+        : 0;
     let origine = 0;
     nbEssais++;
     let motsMelangesRestants = [];
@@ -58,7 +68,10 @@ fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
       let mot = motsMelanges[i];
       let premiereLettre = motsMelanges[i][0].toUpperCase();
       let longueur = motsMelanges[i].length;
-      if (premieresLettres.includes(premiereLettre) || longueur === derniereLongueur) {
+      if (
+        premieresLettres.includes(premiereLettre) ||
+        longueur === derniereLongueur
+      ) {
         motsMelangesRestants.push(mot);
       } else {
         if (premieresLettres.length === 5) premieresLettres.shift();
@@ -77,7 +90,9 @@ fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
   } while (!traitementOk && nbEssais <= maxEssais);
 
   var contenu = "";
-  contenu += motsFiges.map((mot) => mot.trim().replace(/^\s+|\s+$/g, "")).join("\n") + "\n";
+  contenu +=
+    motsFiges.map((mot) => mot.trim().replace(/^\s+|\s+$/g, "")).join("\n") +
+    "\n";
   contenu += motsMelangesFige
     .slice(maxFige + 1)
     .map((mot) => mot.trim().replace(/^\s+|\s+$/g, ""))

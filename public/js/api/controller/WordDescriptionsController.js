@@ -52,6 +52,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     var AsyncExceptionWrapper_1 = __importDefault(require("../../lib/AsyncExceptionWrapper"));
     var DictionaryService_1 = require("../services/DictionaryService");
     var WordDescriptionController = (0, express_1.Router)();
+    WordDescriptionController.get("/prev/word", (0, AsyncExceptionWrapper_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var word;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, DictionaryService_1.DictionaryService.getPrevWord()];
+                case 1:
+                    word = _a.sent();
+                    res.json({ data: word });
+                    return [2 /*return*/];
+            }
+        });
+    }); }));
+    WordDescriptionController.get("/", (0, AsyncExceptionWrapper_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var word;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, DictionaryService_1.DictionaryService.getWords()];
+                case 1:
+                    word = _a.sent();
+                    res.json({ data: word });
+                    return [2 /*return*/];
+            }
+        });
+    }); }));
     WordDescriptionController.get("/:word", (0, AsyncExceptionWrapper_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
         var keyword, word;
         return __generator(this, function (_a) {
@@ -76,6 +100,46 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 case 1:
                     word = _a.sent();
                     res.json({ data: word });
+                    return [2 /*return*/];
+            }
+        });
+    }); }));
+    //answers
+    WordDescriptionController.put("/", (0, AsyncExceptionWrapper_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var payload;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    payload = req.body;
+                    return [4 /*yield*/, DictionaryService_1.DictionaryService.updateAnswer(payload)];
+                case 1:
+                    _a.sent();
+                    res.json({ data: "Collection updated successfully!" });
+                    return [2 /*return*/];
+            }
+        });
+    }); }));
+    WordDescriptionController.get("/answer/:title", (0, AsyncExceptionWrapper_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var keyword, word;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    keyword = req.params.title;
+                    return [4 /*yield*/, DictionaryService_1.DictionaryService.getWordByTitle(keyword)];
+                case 1:
+                    word = _a.sent();
+                    res.json({ data: word });
+                    return [2 /*return*/];
+            }
+        });
+    }); }));
+    WordDescriptionController.delete("/answer/delete", (0, AsyncExceptionWrapper_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, DictionaryService_1.DictionaryService.deleteAnswers()];
+                case 1:
+                    _a.sent();
+                    res.json({ data: "Deleted Successfully" });
                     return [2 /*return*/];
             }
         });

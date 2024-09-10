@@ -45,18 +45,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 (function (factory) {
     if (typeof module === "object" && typeof module.exports === "object") {
         var v = factory(require, exports);
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "../entities"], factory);
+        define(["require", "exports", "../../instanceConfiguration", "../entities"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.DictionaryService = void 0;
+    var instanceConfiguration_1 = __importDefault(require("../../instanceConfiguration"));
     var entities_1 = require("../entities");
     var validateWord = function (word) {
         var regex = /\s/;
@@ -75,12 +79,50 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                         case 0:
                             if (/\s/.test(keyword))
                                 throw new Error("400- Bad request");
-                            return [4 /*yield*/, entities_1.WordModel.findOne({ word: new RegExp(keyword, "i") })];
+                            return [4 /*yield*/, entities_1.WordModel.findOne({
+                                    word: new RegExp(keyword, "i"),
+                                })];
                         case 1:
                             word = _a.sent();
                             if (!word)
                                 throw new Error("404- requested resource ".concat(keyword, " is not found"));
                             return [2 /*return*/, word];
+                    }
+                });
+            });
+        };
+        // Method to calculate the current "day_X" based on the difference from dateOrigine
+        DictionaryService.getDayX = function () {
+            var today = new Date();
+            var timeDiff = today.getTime() - instanceConfiguration_1.default.dateOrigine.getTime();
+            var daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24)); // Calculate days difference
+            return "day_".concat(daysDiff);
+        };
+        DictionaryService.getPrevWord = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var prev_day, wordData;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            prev_day = this.getDayX();
+                            return [4 /*yield*/, entities_1.WordModel.findOne({ release: prev_day }).exec()];
+                        case 1:
+                            wordData = _a.sent();
+                            return [2 /*return*/, wordData];
+                    }
+                });
+            });
+        };
+        DictionaryService.getWords = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var wordData, da;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, entities_1.WordModel.find({}).select("word")];
+                        case 1:
+                            wordData = _a.sent();
+                            da = wordData.map(function (item) { return item.word; });
+                            return [2 /*return*/, da];
                     }
                 });
             });
@@ -99,6 +141,54 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                         case 1:
                             _a.sent();
                             return [2 /*return*/, dbWord];
+                    }
+                });
+            });
+        };
+        // answers
+        DictionaryService.updateAnswer = function (_a) {
+            var word = _a.word, title = _a.title;
+            return __awaiter(this, void 0, void 0, function () {
+                var newAnswer, err_1;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            _b.trys.push([0, 2, , 3]);
+                            newAnswer = new entities_1.AnswersModel({ title: title, word: word });
+                            return [4 /*yield*/, newAnswer.save()];
+                        case 1:
+                            _b.sent();
+                            return [3 /*break*/, 3];
+                        case 2:
+                            err_1 = _b.sent();
+                            console.error("Error in upsertAnswer:", err_1);
+                            return [3 /*break*/, 3];
+                        case 3: return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        DictionaryService.getWordByTitle = function (title) {
+            return __awaiter(this, void 0, void 0, function () {
+                var wordData;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, entities_1.AnswersModel.findOne({ title: title }).select("word").lean()];
+                        case 1:
+                            wordData = _a.sent();
+                            return [2 /*return*/, wordData ? wordData.word : null];
+                    }
+                });
+            });
+        };
+        DictionaryService.deleteAnswers = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, entities_1.AnswersModel.deleteMany({})];
+                        case 1:
+                            _a.sent();
+                            return [2 /*return*/];
                     }
                 });
             });

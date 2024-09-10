@@ -116,9 +116,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             this._shownDescription = "";
             this._config = (_a = sauvegardeur_1.default.chargerConfig()) !== null && _a !== void 0 ? _a : this._config;
             var partieEnCours = this.chargerPartieEnCours();
-            this._shownDescription = partieEnCours.shownDescription ? partieEnCours.shownDescription : "no";
+            this._shownDescription = partieEnCours.shownDescription
+                ? partieEnCours.shownDescription
+                : "no";
             this._idPartieEnCours = this.getIdPartie(partieEnCours);
-            if (this._idPartieEnCours !== partieEnCours.idPartie && partieEnCours.idPartie !== undefined) {
+            if (this._idPartieEnCours !== partieEnCours.idPartie &&
+                partieEnCours.idPartie !== undefined) {
                 partieEnCours = new partieEnCours_1.default();
             }
             if (partieEnCours.datePartie) {
@@ -159,7 +162,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                     }
                 });
             }); })
-                .catch(function (raison) { return notificationMessage_1.default.ajouterNotification("Aucun mot n'a été trouvé pour aujourd'hui"); });
+                .catch(function (raison) {
+                return notificationMessage_1.default.ajouterNotification("Aucun mot n'a été trouvé pour aujourd'hui");
+            });
             this.afficherReglesSiNecessaire();
         }
         Gestionnaire.prototype.getIdPartie = function (partieEnCours) {
@@ -172,7 +177,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         };
         Gestionnaire.prototype.chargerPartieEnCours = function () {
             var _a;
-            this._stats = (_a = sauvegardeur_1.default.chargerSauvegardeStats()) !== null && _a !== void 0 ? _a : sauvegardeStats_1.default.Default;
+            this._stats =
+                (_a = sauvegardeur_1.default.chargerSauvegardeStats()) !== null && _a !== void 0 ? _a : sauvegardeStats_1.default.Default;
             var sauvegardePartieEnCours = sauvegardeur_1.default.chargerSauvegardePartieEnCours();
             if (sauvegardePartieEnCours)
                 return sauvegardePartieEnCours;
@@ -209,12 +215,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             // On regarde si c'est le même jour que la dernière partie dans les stats.
             // Si c'est identique, on ne sauvegarde pas
             if (this._stats.dernierePartie &&
-                this._stats.dernierePartie.getFullYear() === this._datePartieEnCours.getFullYear() &&
-                this._stats.dernierePartie.getMonth() === this._datePartieEnCours.getMonth() &&
+                this._stats.dernierePartie.getFullYear() ===
+                    this._datePartieEnCours.getFullYear() &&
+                this._stats.dernierePartie.getMonth() ===
+                    this._datePartieEnCours.getMonth() &&
                 this._stats.dernierePartie.getDate() === this._datePartieEnCours.getDate())
                 return;
             this._stats.partiesJouees++;
-            var estVictoire = this._resultats.some(function (resultat) { return resultat.every(function (item) { return item.statut === lettreStatut_1.LettreStatut.BienPlace; }); });
+            var estVictoire = this._resultats.some(function (resultat) {
+                return resultat.every(function (item) { return item.statut === lettreStatut_1.LettreStatut.BienPlace; });
+            });
             if (estVictoire) {
                 this._stats.partiesGagnees++;
                 var nbEssais = this._resultats.length;
@@ -308,7 +318,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                             isBonneReponse = resultats.every(function (item) { return item.statut === lettreStatut_1.LettreStatut.BienPlace; });
                             this._propositions.push(mot);
                             this._resultats.push(resultats);
-                            if (isBonneReponse || this._propositions.length === this._maxNbPropositions) {
+                            if (isBonneReponse ||
+                                this._propositions.length === this._maxNbPropositions) {
                                 if (!this._dateFinPartie)
                                     this._dateFinPartie = new Date();
                                 duree = this._dateFinPartie.getTime() - this._datePartieEnCours.getTime();
@@ -320,7 +331,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                                 this._grille.validerMot(mot, resultats, isBonneReponse, chargementPartie, function () {
                                     if (_this._input) {
                                         _this._input.updateClavier(resultats);
-                                        if (isBonneReponse || _this._propositions.length === _this._maxNbPropositions) {
+                                        if (isBonneReponse ||
+                                            _this._propositions.length === _this._maxNbPropositions) {
                                             _this._finDePartiePanel.afficher();
                                         }
                                         else {
@@ -379,8 +391,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         };
         Gestionnaire.prototype.afficherReglesSiNecessaire = function () {
             var _a;
-            if (this._config.afficherRegles !== undefined && !this._config.afficherRegles) {
-                if (this._config.changelog === undefined || this._config.changelog < instanceConfiguration_1.default.derniereMiseAJour) {
+            if (this._config.afficherRegles !== undefined &&
+                !this._config.afficherRegles) {
+                if (this._config.changelog === undefined ||
+                    this._config.changelog < instanceConfiguration_1.default.derniereMiseAJour) {
                     this._notesMaJPanel.afficher((_a = this._config.changelog) !== null && _a !== void 0 ? _a : 0);
                 }
                 return;
@@ -393,7 +407,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             this._idPartieEnCours = this.getIdPartie(partieEnCours);
             var veille = new Date();
             veille.setDate(veille.getDate() - 1);
-            if (this._idPartieEnCours !== partieEnCours.idPartie && partieEnCours.idPartie !== undefined) {
+            if (this._idPartieEnCours !== partieEnCours.idPartie &&
+                partieEnCours.idPartie !== undefined) {
                 partieEnCours = new partieEnCours_1.default();
             }
             if (partieEnCours.datePartie &&
@@ -430,7 +445,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                     }
                 });
             }); })
-                .catch(function (raison) { return notificationMessage_1.default.ajouterNotification("Aucun mot n'a été trouvé pour aujourd'hui"); });
+                .catch(function (raison) {
+                return notificationMessage_1.default.ajouterNotification("Aucun mot n'a été trouvé pour aujourd'hui");
+            });
         };
         Object.defineProperty(Gestionnaire.prototype, "motDeDescriptionPanel", {
             get: function () {

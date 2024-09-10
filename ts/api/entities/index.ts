@@ -1,4 +1,4 @@
-import { Schema, model, Document } from 'mongoose';
+import { Schema, model, Document } from "mongoose";
 
 export interface Word extends Document {
   title: string;
@@ -7,6 +7,11 @@ export interface Word extends Document {
   synonyms?: string[];
   antonyms?: string[];
   image?: string;
+}
+
+export interface IAnswer extends Document {
+  title: string;
+  word: string;
 }
 
 // Define the Mongoose schema
@@ -34,7 +39,27 @@ const wordSchema = new Schema<Word>(
       type: [String],
       default: [],
     },
-    image: {type: String, default: ""},
+    image: { type: String, default: "" },
+  },
+  {
+    timestamps: true,
+    autoCreate: true,
+    strict: true,
+  }
+);
+
+const AnswerModel = new Schema<IAnswer>(
+  {
+    word: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    title: {
+      type: String,
+      required: true,
+      unique: true,
+    },
   },
   {
     timestamps: true,
@@ -44,4 +69,5 @@ const wordSchema = new Schema<Word>(
 );
 
 // Create the Word model
-export const WordModel = model<Word>('words', wordSchema);
+export const WordModel = model<Word>("words", wordSchema);
+export const AnswersModel = model<Word>("answers", AnswerModel);

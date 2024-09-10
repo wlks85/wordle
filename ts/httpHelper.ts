@@ -1,4 +1,4 @@
-export type HttpMethods = 'GET' | 'POST' | 'PUT' | 'DELETE';
+export type HttpMethods = "GET" | "POST" | "PUT" | "DELETE";
 
 interface RequestOptions {
   method: HttpMethods;
@@ -6,12 +6,15 @@ interface RequestOptions {
   body?: BodyInit | null;
 }
 
-export async function HttpRequestHelper(url: string, options: RequestOptions): Promise<any> {
+export async function HttpRequestHelper(
+  url: string,
+  options: RequestOptions
+): Promise<any> {
   try {
     const baseUrl = `${document.location.origin}/api`;
+
     const response = await fetch(`${baseUrl}/${url}`, options);
     return response.json();
-  } catch (error: any) {
-  }
+  } catch (error: any) {}
   return null;
 }

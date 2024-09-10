@@ -9,7 +9,7 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.WordModel = void 0;
+    exports.AnswersModel = exports.WordModel = void 0;
     var mongoose_1 = require("mongoose");
     // Define the Mongoose schema
     var wordSchema = new mongoose_1.Schema({
@@ -41,6 +41,23 @@
         autoCreate: true,
         strict: true,
     });
+    var AnswerModel = new mongoose_1.Schema({
+        word: {
+            type: String,
+            required: true,
+            unique: true,
+        },
+        title: {
+            type: String,
+            required: true,
+            unique: true,
+        },
+    }, {
+        timestamps: true,
+        autoCreate: true,
+        strict: true,
+    });
     // Create the Word model
-    exports.WordModel = (0, mongoose_1.model)('words', wordSchema);
+    exports.WordModel = (0, mongoose_1.model)("words", wordSchema);
+    exports.AnswersModel = (0, mongoose_1.model)("answers", AnswerModel);
 });

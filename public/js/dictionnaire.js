@@ -72,6 +72,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     var Dictionnaire = /** @class */ (function () {
         function Dictionnaire() {
         }
+        // public static async getMot(
+        //   idPartie: string,
+        //   datePartie: Date
+        // ): Promise<string> {
+        //   return await this.getNomFichier(idPartie, datePartie)
+        //     .then((nom) => {
+        //       console.log("nom", nom);
+        //       return fetch("mots/" + nom + ".txt");
+        //     })
+        //     .then(
+        //       (resultat) =>
+        //         new Promise<string>((resolve, reject) => {
+        //           if (!resultat.ok) return reject("Mot non trouvé");
+        //           return resolve(resultat.text());
+        //         })
+        //     )
+        //     .then(async (motBrut) => {
+        //       let mot = Dictionnaire.nettoyerMot(motBrut);
+        //       console.log("mot", mot);
+        //       let longueur = mot.length;
+        //       console.log("mot.length", mot.length);
+        //       let premiereLettre = mot[0];
+        //       console.log("premiereLettre", premiereLettre);
+        //       let _ = await import(
+        //         `./mots/listeMotsProposables.${longueur}.${premiereLettre}`
+        //       );
+        //       return mot;
+        //     });
+        // }
         Dictionnaire.getMot = function (idPartie, datePartie) {
             return __awaiter(this, void 0, void 0, function () {
                 var _this = this;
@@ -79,15 +108,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, this.getNomFichier(idPartie, datePartie)
                                 .then(function (nom) {
-                                return fetch("mots/" + nom + ".txt");
+                                console.log("nom", nom);
+                                return fetch("http://127.0.0.1:4000/api/words/answer/".concat(nom));
                             })
-                                .then(function (resultat) {
-                                return new Promise(function (resolve, reject) {
-                                    if (!resultat.ok)
-                                        return reject("Mot non trouvé");
-                                    return resolve(resultat.text());
+                                .then(function (resultat) { return __awaiter(_this, void 0, void 0, function () {
+                                var response;
+                                return __generator(this, function (_a) {
+                                    switch (_a.label) {
+                                        case 0:
+                                            if (!resultat.ok) {
+                                                throw new Error("Mot non trouvé");
+                                            }
+                                            return [4 /*yield*/, resultat.json()];
+                                        case 1:
+                                            response = _a.sent();
+                                            return [2 /*return*/, response.data]; // Access the 'data' field from the JSON response
+                                    }
                                 });
-                            })
+                            }); })
                                 .then(function (motBrut) { return __awaiter(_this, void 0, void 0, function () {
                                 var mot, longueur, premiereLettre, _;
                                 return __generator(this, function (_a) {
@@ -132,7 +170,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                             return [4 /*yield*/, __syncRequire ? Promise.resolve().then(function () { return __importStar(require("./mots/listeMotsProposables")); }) : new Promise(function (resolve_2, reject_2) { require(["./mots/listeMotsProposables"], resolve_2, reject_2); }).then(__importStar)];
                         case 1:
                             ListeMotsProposables = _a.sent();
-                            return [2 /*return*/, mot.length >= 6 && mot.length <= 10 && ListeMotsProposables.default.Dictionnaire.includes(mot)];
+                            return [2 /*return*/, (mot.length >= 6 &&
+                                    mot.length <= 10 &&
+                                    ListeMotsProposables.default.Dictionnaire.includes(mot))];
                     }
                 });
             });

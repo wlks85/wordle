@@ -43,14 +43,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "express", "http", "fs", "./instanceConfiguration", "./lib", "dotenv", "./api", "body-parser"], factory);
+        define(["require", "exports", "express", "http", "./instanceConfiguration", "./lib", "dotenv", "./api", "body-parser"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var express_1 = __importDefault(require("express"));
     var http_1 = __importDefault(require("http"));
-    var fs_1 = __importDefault(require("fs"));
     var instanceConfiguration_1 = __importDefault(require("./instanceConfiguration"));
     var lib_1 = require("./lib");
     var dotenv_1 = __importDefault(require("dotenv"));
@@ -61,7 +60,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     app.use(body_parser_1.default.json());
     var port = parseInt(String(process.env.SUTOM_PORT), 10) || 4000;
     (function () { return __awaiter(void 0, void 0, void 0, function () {
-        var datePartie, datePartieStr, nomFichier, adresseFichierMot, server;
+        var datePartie, datePartieStr, nomFichier, server;
         return __generator(this, function (_a) {
             app.use("/", express_1.default.static("public/"));
             app.use("/js", express_1.default.static("public/js/"));
@@ -76,15 +75,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 "-" +
                 datePartie.getDate().toString().padStart(2, "0");
             nomFichier = Buffer.from(instanceConfiguration_1.default.idPartieParDefaut + "-" + datePartieStr, "utf-8").toString("base64");
-            adresseFichierMot = "public/mots/" + nomFichier + ".txt";
-            fs_1.default.access(adresseFichierMot, fs_1.default.constants.F_OK, function (err) {
-                if (err) {
-                    fs_1.default.writeFile(adresseFichierMot, "DIFFUSION", function (err) {
-                        if (err)
-                            console.error(err);
-                    });
-                }
-            });
+            // const adresseFichierMot = "public/mots/" + nomFichier + ".txt";
+            // fs.access(adresseFichierMot, fs.constants.F_OK, (err) => {
+            //   if (err) {
+            //     fs.writeFile(adresseFichierMot, "DIFFUSION", (err) => {
+            //       if (err) console.error(err);
+            //     });
+            //   }
+            // });
             app.use(express_1.default.json());
             server = http_1.default.createServer(app);
             (0, lib_1.InitDb)()
@@ -92,7 +90,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 server.listen(port, function () {
                     console.log("Jeu d\u00E9marr\u00E9 : http://127.0.0.1:".concat(port));
                 });
-            }).catch(function (err) {
+            })
+                .catch(function (err) {
                 console.error(err.message);
             });
             return [2 /*return*/];

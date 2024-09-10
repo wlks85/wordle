@@ -12,7 +12,7 @@
   --couleur-fond: rgb(142, 156, 176);
   --couleur-bordure: rgb(255, 255, 255);
   --couleur-bordure-grille: #ffffff;
-  --couleur-police: rgb(255,255,255);
+  --couleur-police: rgb(255, 255, 255);
   --couleur-police-grille: rgb(255, 255, 255);
   --couleur-police-grille-pas-curseur: rgb(255, 255, 255, 0.65);
   --couleur-lettre-speciale: rgb(96, 116, 146);
@@ -103,7 +103,9 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   background-color: var(--couleur-fond-grille);
-  min-height: calc(6 * var(--taille-cellule) + 10 * var(--epaisseur-bordure-cellule));
+  min-height: calc(
+    6 * var(--taille-cellule) + 10 * var(--epaisseur-bordure-cellule)
+  );
   margin-bottom: auto;
   font-size: 32px;
 }
@@ -540,6 +542,12 @@ h1 {
   .regles-panel table,
   #grille {
     font-size: 28px;
+  }
+  .head-title {
+    font-size: 22px;
+  }
+  .head-subtitle {
+    font-size: 16px;
   }
 }
 
