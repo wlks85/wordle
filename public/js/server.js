@@ -43,7 +43,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "express", "http", "./instanceConfiguration", "./lib", "dotenv", "./api", "body-parser"], factory);
+        define(["require", "exports", "express", "http", "./instanceConfiguration", "./lib", "dotenv", "cors", "./api", "body-parser"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -53,10 +53,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     var instanceConfiguration_1 = __importDefault(require("./instanceConfiguration"));
     var lib_1 = require("./lib");
     var dotenv_1 = __importDefault(require("dotenv"));
+    var cors_1 = __importDefault(require("cors"));
     var api_1 = __importDefault(require("./api"));
     var body_parser_1 = __importDefault(require("body-parser"));
     dotenv_1.default.config();
     var app = (0, express_1.default)();
+    app.use((0, cors_1.default)());
     app.use(body_parser_1.default.json());
     var port = parseInt(String(process.env.SUTOM_PORT), 10) || 4000;
     (function () { return __awaiter(void 0, void 0, void 0, function () {
