@@ -14,7 +14,7 @@ const maxFige = numeroGrille + 1; // inclus
 fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
   // console.log(erreur);
   var dictionnaire = contenu.split("\n");
-  let motsFiges = dictionnaire.slice(0, maxFige + 1);
+  let motsFiges = dictionnaire.slice(0, maxFige + 10);
 
   // delete old answers from db
   fetch(`http://127.0.0.1:4000/api/words/answer/delete`, {

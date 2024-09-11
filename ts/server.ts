@@ -4,14 +4,15 @@ import fs from "fs";
 import InstanceConfiguration from "./instanceConfiguration";
 import { InitDb } from "./lib";
 import dotenv from "dotenv";
-import cors from "cors";
 import RegisterApi from "./api";
 import bodyParser from "body-parser";
 import { Console } from "console";
+import cors from "cors";
 dotenv.config();
 
+
 const app = express();
-app.use (cors());
+app.use(cors());
 app.use(bodyParser.json());
 const port = parseInt(String(process.env.SUTOM_PORT), 10) || 4000;
 

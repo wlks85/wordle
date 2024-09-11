@@ -2,5 +2,3 @@ batoille
 jaquette
 clopet
 cocoler
-bancomat
-pouet
