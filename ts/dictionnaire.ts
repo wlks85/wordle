@@ -38,7 +38,7 @@ export default class Dictionnaire {
     return await this.getNomFichier(idPartie, datePartie)
       .then((nom) => {
         console.log("nom", nom);
-        return fetch(`https://mootus.dis-voir.ch/api/words/answer/${nom}`);
+        return fetch(`http://127.0.0.1:4000/api/words/answer/${nom}`);
       })
       .then(async (resultat) => {
         if (!resultat.ok) {
