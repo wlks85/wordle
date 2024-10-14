@@ -10,14 +10,14 @@ let origine = instanceConfiguration.default.dateOrigine.getTime();
 
 let numeroGrille = Math.floor((aujourdhui - origine) / (24 * 3600 * 1000));
 
-const maxFige = numeroGrille + 1; // inclus
+const maxFige = numeroGrille + 10; // inclus
 fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
   // console.log(erreur);
   var dictionnaire = contenu.split("\n");
   let motsFiges = dictionnaire.slice(0, maxFige + 10);
 
   // delete old answers from db
-  fetch(`http://127.0.0.1:4000/api/words/answer/delete`, {
+  fetch(`https://mootus.dis-voir.ch/api/words/answer/delete`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -74,7 +74,7 @@ fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
           word: mot,
         };
 
-        fetch(`http://127.0.0.1:4000/api/words`, {
+        fetch(`https://mootus.dis-voir.ch/api/words`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

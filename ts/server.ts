@@ -55,7 +55,7 @@ const port = parseInt(String(process.env.SUTOM_PORT), 10) || 4000;
   InitDb()
     .then(() => {
       server.listen(port, () => {
-        console.log(`Jeu démarré : http://127.0.0.1:${port}`);
+        console.log(`Jeu démarré : https://mootus.dis-voir.ch`);
       });
     })
     .catch((err) => {
