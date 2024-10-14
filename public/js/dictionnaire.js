@@ -109,7 +109,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                         case 0: return [4 /*yield*/, this.getNomFichier(idPartie, datePartie)
                                 .then(function (nom) {
                                 console.log("nom", nom);
-                                return fetch("http://127.0.0.1:4000/api/words/answer/".concat(nom));
+                                return fetch("https://mootus.dis-voir.ch/api/words/answer/".concat(nom));
                             })
                                 .then(function (resultat) { return __awaiter(_this, void 0, void 0, function () {
                                 var response;
