@@ -14,7 +14,7 @@ const maxFige = numeroGrille + 22; // inclus
 fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
   // console.log(erreur);
   var dictionnaire = contenu.split("\n");
-  let motsFiges = dictionnaire.slice(0, maxFige + 10);
+  let motsFiges = dictionnaire.slice(0, maxFige + 1);
 
   // delete old answers from db
   fetch(`https://mootus.dis-voir.ch/api/words/answer/delete`, {
