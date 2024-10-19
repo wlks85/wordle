@@ -10,7 +10,7 @@ let origine = instanceConfiguration.default.dateOrigine.getTime();
 
 let numeroGrille = Math.floor((aujourdhui - origine) / (24 * 3600 * 1000));
 
-const maxFige = numeroGrille + 10; // inclus
+const maxFige = numeroGrille + 22; // inclus
 fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
   // console.log(erreur);
   var dictionnaire = contenu.split("\n");
