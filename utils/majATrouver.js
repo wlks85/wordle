@@ -74,7 +74,7 @@ fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
           word: mot,
         };
 
-        fetch(`http://127.0.0.1:4000/api/words`, {
+        fetch(`https://mootus.dis-voir.ch/api/words`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
