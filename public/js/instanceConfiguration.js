@@ -12,7 +12,7 @@
     var InstanceConfiguration = /** @class */ (function () {
         function InstanceConfiguration() {
         }
-        InstanceConfiguration.dateOrigine = new Date(2024, 8, 9); // Attention, c'est du js/ts, donc pour le mois, il faut faire -1, Janvier = 0 !
+        InstanceConfiguration.dateOrigine = new Date(2024, 9, 14); // Attention, c'est du js/ts, donc pour le mois, il faut faire -1, Janvier = 0 !
         InstanceConfiguration.idPartieParDefaut = "34ccc522-c264-4e51-b293-fd5bd60ef7aa";
         InstanceConfiguration.derniereMiseAJour = 512;
         return InstanceConfiguration;
