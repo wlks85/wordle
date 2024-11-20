@@ -63,7 +63,6 @@ fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
         !mot.toUpperCase().startsWith("W") &&
         !mot.toUpperCase().startsWith("X") &&
         !mot.toUpperCase().startsWith("Y") &&
-        !mot.toUpperCase().startsWith("Z") &&
         listeMotsProposable.default.Dictionnaire.includes(mot)
     )
     .map(function (mot) {

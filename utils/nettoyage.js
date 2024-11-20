@@ -69,8 +69,7 @@ fs.readFile("data/merged_output.txt", "UTF8", function (erreur, contenu) {
         !mot.toUpperCase().startsWith("Q") &&
         !mot.toUpperCase().startsWith("W") &&
         !mot.toUpperCase().startsWith("X") &&
-        !mot.toUpperCase().startsWith("Y") &&
-        !mot.toUpperCase().startsWith("Z")
+        !mot.toUpperCase().startsWith("Y")
     )
     .filter(function (elem, index, self) {
       return index === self.indexOf(elem);
