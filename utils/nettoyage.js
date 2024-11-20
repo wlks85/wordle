@@ -89,7 +89,7 @@ fs.readFile("data/merged_output.txt", "UTF8", function (erreur, contenu) {
   ecrireDictionnaire(dictionnaire);
 
   let longueurs = [6, 7, 8, 9, 10];
-  let initialesPossibles = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "L", "M", "N", "O", "P", "R", "S", "T", "U", "V", "K", "Q", "W", "X", "Y"];
+  let initialesPossibles = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "L", "M", "N", "O", "P", "R", "S", "T", "U", "V", "K", "Q", "W", "X", "Y", "Z"];
   for (let longueur of longueurs) {
     for (let initiale of initialesPossibles) {
       let dicoFiltre = dictionnaire.filter((mot) => mot.length === longueur && mot.toUpperCase().startsWith(initiale));
