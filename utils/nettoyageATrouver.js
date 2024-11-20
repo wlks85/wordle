@@ -58,11 +58,11 @@ fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
         !mot.includes("!") &&
         !mot.includes(" ") &&
         !mot.includes("-") &&
-        !mot.toUpperCase().startsWith("K") &&
-        !mot.toUpperCase().startsWith("Q") &&
-        !mot.toUpperCase().startsWith("W") &&
-        !mot.toUpperCase().startsWith("X") &&
-        !mot.toUpperCase().startsWith("Y") &&
+        // !mot.toUpperCase().startsWith("K") &&
+        // !mot.toUpperCase().startsWith("Q") &&
+        // !mot.toUpperCase().startsWith("W") &&
+        // !mot.toUpperCase().startsWith("X") &&
+        // !mot.toUpperCase().startsWith("Y") &&
         listeMotsProposable.default.Dictionnaire.includes(mot)
     )
     .map(function (mot) {

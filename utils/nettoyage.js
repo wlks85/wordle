@@ -64,12 +64,12 @@ fs.readFile("data/merged_output.txt", "UTF8", function (erreur, contenu) {
         mot.length <= 10 &&
         !mot.includes("!") &&
         !mot.includes(" ") &&
-        !mot.includes("-") &&
-        !mot.toUpperCase().startsWith("K") &&
-        !mot.toUpperCase().startsWith("Q") &&
-        !mot.toUpperCase().startsWith("W") &&
-        !mot.toUpperCase().startsWith("X") &&
-        !mot.toUpperCase().startsWith("Y")
+        !mot.includes("-")
+        // !mot.toUpperCase().startsWith("K") &&
+        // !mot.toUpperCase().startsWith("Q") &&
+        // !mot.toUpperCase().startsWith("W") &&
+        // !mot.toUpperCase().startsWith("X") &&
+        // !mot.toUpperCase().startsWith("Y")
     )
     .filter(function (elem, index, self) {
       return index === self.indexOf(elem);

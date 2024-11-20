@@ -24,12 +24,12 @@ function start() {
           motAnalyse.length <= 10 &&
           !motAnalyse.includes("!") &&
           !motAnalyse.includes(" ") &&
-          !motAnalyse.includes("-") &&
-          !mot.toUpperCase().startsWith("K") &&
-          !mot.toUpperCase().startsWith("Q") &&
-          !mot.toUpperCase().startsWith("W") &&
-          !mot.toUpperCase().startsWith("X") &&
-          !mot.toUpperCase().startsWith("Y");
+          !motAnalyse.includes("-");
+          // !mot.toUpperCase().startsWith("K") &&
+          // !mot.toUpperCase().startsWith("Q") &&
+          // !mot.toUpperCase().startsWith("W") &&
+          // !mot.toUpperCase().startsWith("X") &&
+          // !mot.toUpperCase().startsWith("Y");
       } while (!motTrouve);
       console.log(mot);
 
