@@ -38,7 +38,7 @@ fs.readFile("data/motsATrouve.txt", "UTF8", function (erreur, contenu) {
     });
   // update answers
   // delete old answers from db
-  motsFiges
+  dictionnaire
     .map((mot) =>
       mot
         .normalize("NFD")
